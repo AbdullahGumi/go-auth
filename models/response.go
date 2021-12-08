@@ -1,6 +1,6 @@
 package models
 
 type Response struct {
-	Payload string `json:"payload"`
-	Error   string `json:"error"`
+	Token string `json:"token"`
+	Data  User   `json:"user"`
 }
