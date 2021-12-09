@@ -11,9 +11,7 @@ import (
 )
 
 func GetAllUsers(res http.ResponseWriter, req *http.Request, params httprouter.Params) {
-
 	users := dao.DoFetchAllUsers()
 	err1 := json.NewEncoder(res).Encode(users)
 	util.HandleErr(err1)
-
 }

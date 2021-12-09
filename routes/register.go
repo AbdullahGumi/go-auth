@@ -14,15 +14,14 @@ type Response struct {
 }
 
 func Register(res http.ResponseWriter, req *http.Request, params httprouter.Params) {
-
 	newUser := U.User{}
 	json.NewDecoder(req.Body).Decode(&newUser)
-	isReg := dao.DoRegister(newUser.Username, newUser.Email, newUser.Password)
+	isReg := dao.DoRegister(newUser)
 
 	if isReg != true {
-		json.NewEncoder(res).Encode(Response{"An error occured"})
+		json.NewEncoder(res).Encode(Response{"An Error Occurred"})
 	} else {
-		json.NewEncoder(res).Encode(Response{"User created "})
+		json.NewEncoder(res).Encode(Response{"User Created Successfully"})
 	}
 
 }
